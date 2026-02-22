@@ -1,0 +1,1077 @@
+# Getting Started
+
+This is the documentation for the Matcha LuaVM. Please note that the **LuaVM is not an executor, it does not internally hook any functions in the Roblox engine**. Instead it tries to emulate those functions externally. This makes it completely undetected, but also means it lacks direct access to internal Roblox API functions.
+
+### Resources
+
+To understand how the LuaVM works, you first need to understand the basics of Lua(U). For that, visit lua.org
+# Functions
+
+## Overview
+
+This article, and it's sub-pages document how to use functions built in Matcha.
+# Globals Functions
+
+### loadstring / load
+
+```lua
+function loadstring(chunk: string, chunkname: string)
+```
+
+Loads `chunk` as a Lua function and returns it if compilation is successful. Otherwise, if an error has occurred during compilation, nil followed by the error message will be returned.
+
+### decompile
+
+```lua
+function decompile(script: Instance): string
+```
+
+Decompiles `Script` and returns the decompiled script. If the decompilation fails, then notify an error message.
+
+### WorldToScreen
+
+```lua
+function WorldToScreen(position: Vector3): (Vector2, boolean)
+```
+
+### notify
+
+```lua
+function notify(message: string, title: string, duration: number)
+```
+
+Sends a Matcha notification with a message, title, and duration in seconds
+
+### identifyexecutor
+
+```lua
+function identifyexecutor(): string
+```
+
+Returns "Matcha" and version
+
+### getscripthash
+
+```lua
+function getscripthash(script: Instance): string
+```
+
+Returns FNV-1a 64-bit hash of bytecode
+
+### getgetname
+
+```lua
+function getgetname(): string
+```
+
+Returns the game name
+
+### getscripts
+
+```lua
+function getscripts(): { Scripts }
+```
+
+Returns all script instances
+
+### getscriptbytecode
+
+```lua
+function getscriptbytecode(script: Instance): string
+```
+
+Returns the raw bytecode of a script
+
+### base64encode
+
+```lua
+function base64encode(data: string): string
+```
+
+Encodes a string to Base64 format
+
+### base64decode
+
+```lua
+function base64decode(data: string): string
+```
+
+Decodes a Base64 string back to normal string
+# Console Functions
+
+### print / printl
+
+```lua
+function print(message: string)
+```
+
+### warn
+
+```lua
+function warn(message: string)
+```
+
+### error
+
+```lua
+function error(message: string)
+```
+# Input Functions
+
+### setrobloxinput
+
+```lua
+function setrobloxinput(state: boolean): nil
+```
+
+This function toggles sending inputs to the game.
+
+### isrbxactive
+
+```lua
+function isrbxactive(): bool
+```
+
+This function will return if your current window is Roblox.
+
+### setclipboard
+
+```lua
+function setclipboard(value: string): nil
+```
+
+### keyrelease
+
+```lua
+function keyrelease(keycode: int): nil
+```
+
+### keypress
+
+```lua
+function keypress(keycode: int): nil
+```
+
+### iskeypressed
+
+```lua
+function iskeypressed(keycode: int): bool
+```
+
+### ismouse1pressed
+
+```lua
+function ismouse1pressed(): bool
+```
+
+### ismouse2pressed
+
+```lua
+function ismouse2pressed(): bool
+```
+
+### mouse1press
+
+```lua
+function mouse1press(): nil
+```
+
+### mouse1release
+
+```lua
+function mouse1release(): nil
+```
+
+### mouse1click
+
+```lua
+function mouse1click(): nil
+```
+
+### mouse2press
+
+```lua
+function mouse2press(): nil
+```
+
+### mouse2release
+
+```lua
+function mouse2release(): nil
+```
+
+### mouse2click
+
+```lua
+function mouse2click(): nil
+```
+
+### mousemoveabs
+
+```lua
+function mousemoveabs(x: int, y: int): nil
+```
+
+### mousemoverel
+
+```lua
+function mousemoverel(x: int, y: int): nil
+```
+
+### mousescroll
+
+```lua
+function mousescroll(amount: int): nil
+```
+# Miscellaneous Functions
+
+### run\_secure
+
+```lua
+function run_secure(text: string)
+```
+
+Run protected code.
+
+{% hint style="warning" %}
+Code protection is not available to the public!
+{% endhint %}
+
+### Set Fast Flag <a href="#set-fast-flag" id="set-fast-flag"></a>
+
+```lua
+function setfflag(FFlag: string, value: string)
+```
+
+Sets `FFlag` with `Value`.&#x20;
+
+{% hint style="danger" %}
+This function is not complete!
+{% endhint %}
+
+### Get Fast Flag <a href="#set-fast-flag" id="set-fast-flag"></a>
+
+```lua
+function getfflag(FFlag: string)
+```
+
+Sets `FFlag` with `Value`.&#x20;
+
+{% hint style="danger" %}
+This function is not complete!
+{% endhint %}
+
+### require
+
+{% hint style="info" %}
+Require only accepts files ending with `.lua` and `.luau`
+{% endhint %}
+
+```lua
+function require(path: string): table
+```
+
+### wait
+
+```lua
+function wait(time: number)
+```
+
+### spawn
+
+```lua
+function spawn(target: function): nil
+```
+
+### task.spawn
+
+```lua
+function task.spawn(target: function): nil
+```
+
+### task.wait
+
+```lua
+function task.wait(time: number)
+```
+
+# Memory Functions
+
+{% hint style="warning" %}
+&#x20;You must allow unsafe LuaU execution before using these functions
+{% endhint %}
+
+### Memory Types
+
+<table><thead><tr><th valign="middle">Memory Types</th><th>Returns</th></tr></thead><tbody><tr><td valign="middle">int</td><td>int</td></tr><tr><td valign="middle">float</td><td>number</td></tr><tr><td valign="middle">double</td><td>number</td></tr><tr><td valign="middle">byte</td><td>int</td></tr><tr><td valign="middle">string</td><td>string</td></tr><tr><td valign="middle">uintptr_t</td><td>int</td></tr></tbody></table>
+
+### getbase <a href="#set-fast-flag" id="set-fast-flag"></a>
+
+```lua
+function getbase(): int
+```
+
+Return `RobloxPlayerBeta.exe` base address.
+
+### memory\_write
+
+{% hint style="danger" %}
+Ensure both memory address and address value are the correct type before writing to it. Improper usage may cause unexpected and dangerous behavior
+{% endhint %}
+
+```lua
+memory_write(memoryType: string, address: int, value: Any): nil
+```
+
+### memory\_read
+
+```lua
+memory_read(memoryType: string, address: int): Any
+```
+# Classes
+
+- [BasePart](/matcha/luau-environment/classes/basepart.md): https://create.roblox.com/docs/reference/engine/classes/BasePart
+- [Camera](/matcha/luau-environment/classes/camera.md): https://create.roblox.com/docs/reference/engine/classes/Camera
+- [DataModel](/matcha/luau-environment/classes/datamodel.md): https://create.roblox.com/docs/reference/engine/classes/DataModel
+- [HttpGet Service](/matcha/luau-environment/classes/httpget-service.md)
+- [Humanoid](/matcha/luau-environment/classes/humanoid.md): https://create.roblox.com/docs/reference/engine/classes/Humanoid
+- [Model](/matcha/luau-environment/classes/model.md): https://create.roblox.com/docs/reference/engine/classes/Model
+- [Workspace](/matcha/luau-environment/classes/workspace.md): https://create.roblox.com/docs/reference/engine/classes/Workspace
+- [Instance](/matcha/luau-environment/classes/instance.md): https://create.roblox.com/docs/reference/engine/classes/Instance
+- [Mouse](/matcha/luau-environment/classes/mouse.md): https://create.roblox.com/docs/reference/engine/classes/Mouse
+- [Players](/matcha/luau-environment/classes/players.md): https://create.roblox.com/docs/reference/engine/classes/Players
+- [Player](/matcha/luau-environment/classes/player.md): https://create.roblox.com/docs/reference/engine/classes/Player
+- [ValueBase](/matcha/luau-environment/classes/valuebase.md): https://create.roblox.com/docs/reference/engine/classes/ValueBase
+- [GuiObject](/matcha/luau-environment/classes/guiobject.md): https://create.roblox.com/docs/reference/engine/classes/GuiObject
+- [TextLabel](/matcha/luau-environment/classes/textlabel.md): https://create.roblox.com/docs/reference/engine/classes/TextLabel
+- [MeshPart](/matcha/luau-environment/classes/meshpart.md): https://create.roblox.com/docs/reference/engine/classes/MeshPart
+- [UserInputService](/matcha/luau-environment/classes/userinputservice.md)
+
+# BasePart
+
+### Properties <a href="#properties" id="properties"></a>
+
+#### Size <a href="#size" id="size"></a>
+
+```
+BasePart.Size: Vector3
+```
+
+#### Position <a href="#position" id="position"></a>
+
+```
+BasePart.Position: Vector3
+```
+
+#### Transparency <a href="#transparency" id="transparency"></a>
+
+```
+BasePart.Transparency: number
+```
+
+#### Color <a href="#transparency" id="transparency"></a>
+
+```lua
+BasePart.Color: Color3
+```
+
+#### Velocity <a href="#transparency" id="transparency"></a>
+
+```
+BasePart.Velocity: Vector3
+```
+
+#### AssemblyLinearVelocity <a href="#transparency" id="transparency"></a>
+
+```
+BasePart.AssemblyLinearVelocity: Vector3
+```
+
+#### CanCollide <a href="#cancollide" id="cancollide"></a>
+
+```
+BasePart.CanCollide: bool
+```
+# Camera
+
+### Constructors <a href="#properties" id="properties"></a>
+
+#### lookAt <a href="#size" id="size"></a>
+
+```lua
+Camera.lookAt(at: Vector3, lookAt: Vector3)
+```
+
+### Properties <a href="#properties" id="properties"></a>
+
+#### ViewportSize <a href="#viewportsize" id="viewportsize"></a>
+
+```
+Camera.ViewportSize: Vector2
+```
+
+#### FieldOfView <a href="#fieldofview" id="fieldofview"></a>
+
+```
+Camera.FieldOfView: number
+```
+
+#### Position <a href="#position" id="position"></a>
+
+```
+Camera.Position: Vector3
+```
+# DataModel
+
+### Properties <a href="#properties" id="properties"></a>
+
+#### PlaceId <a href="#placeid" id="placeid"></a>
+
+```
+Instance.PlaceId: number
+```
+
+#### GameId <a href="#gameid" id="gameid"></a>
+
+```
+Instance.GameId: number
+```
+
+#### JobId <a href="#jobid" id="jobid"></a>
+
+```
+Instance.JobId: string
+```
+
+### Methods <a href="#methods" id="methods"></a>
+
+#### HttpGet <a href="#httpget" id="httpget"></a>
+
+```lua
+function DataModel:HttpGet(url: string, content: string): any
+```
+
+#### GetService <a href="#getservice" id="getservice"></a>
+
+```lua
+function DataModel:GetService(name: string): Instance
+```
+# HttpGet Service
+
+#### HttpGet <a href="#httpget" id="httpget"></a>
+
+```lua
+function DataModel:HttpGet(url: string, content: string): any
+```
+
+#### JSONEncode <a href="#getservice" id="getservice"></a>
+
+```lua
+function HttpService:JSONEncode(tbl: table): string
+```
+
+#### JSONDecode <a href="#getservice" id="getservice"></a>
+
+```lua
+function HttpService:JSONDecode(str: string): table
+```
+
+#### GenerateGUID <a href="#getservice" id="getservice"></a>
+
+```lua
+function HttpService:GenerateGUID(): string
+```
+# Humanoid
+
+### Properties <a href="#properties" id="properties"></a>
+
+#### MaxHealth <a href="#maxhealth" id="maxhealth"></a>
+
+```
+Humanoid.MaxHealth: number
+```
+
+#### Health <a href="#health" id="health"></a>
+
+```
+Humanoid.Health: number
+```
+# Model
+
+### Properties <a href="#properties" id="properties"></a>
+
+#### PrimaryPart <a href="#primarypart" id="primarypart"></a>
+
+```
+Model.PrimaryPart: BasePart
+```
+# Workspace
+
+### Properties <a href="#properties" id="properties"></a>
+
+#### CurrentCamera <a href="#currentcamera" id="currentcamera"></a>
+
+```
+Workspace.CurrentCamera: Camera
+```
+# Instance
+
+### Properties <a href="#properties" id="properties"></a>
+
+#### Name <a href="#name" id="name"></a>
+
+```lua
+Instance.Name: string
+```
+
+#### ClassName <a href="#classname" id="classname"></a>
+
+```lua
+Instance.ClassName: string
+```
+
+#### Parent <a href="#parent" id="parent"></a>
+
+```lua
+Instance.Parent: Instance
+```
+
+#### Address <a href="#data" id="data"></a>
+
+```lua
+Instance.Address: number
+```
+
+Hexadecimal number representing the Instance’s memory address.
+
+### Methods <a href="#methods" id="methods"></a>
+
+#### FindFirstChildOfClass <a href="#findfirstchildofclass" id="findfirstchildofclass"></a>
+
+```lua
+function Instance:FindFirstChildOfClass(name: string): Instance
+```
+
+#### FindFirstChild <a href="#findfirstchild" id="findfirstchild"></a>
+
+```lua
+function Instance:FindFirstChild(name: string): Instance
+```
+
+#### IsA <a href="#findfirstchild" id="findfirstchild"></a>
+
+```lua
+function Instance:IsA(name: string): boolean
+```
+
+#### GetFullName <a href="#findfirstchild" id="findfirstchild"></a>
+
+```lua
+function Instance:GetFullName(): string
+```
+
+#### GetChildren <a href="#getchildren" id="getchildren"></a>
+
+```lua
+function Instance:GetChildren(): { Instance }
+```
+
+#### GetAttribute <a href="#getattribute" id="getattribute"></a>
+
+```lua
+function Instance:GetAttribute(name: string): any
+```
+
+#### GetAttributes <a href="#getattributes" id="getattributes"></a>
+
+```lua
+function Instance:GetAttributes(): { string }
+```
+
+#### SetAttribute <a href="#setattribute" id="setattribute"></a>
+
+```lua
+function Instance:SetAttribute(name: string, value: any): nil
+```
+
+#### GetDescendants <a href="#getdescendants" id="getdescendants"></a>
+
+```lua
+function Instance:GetDescendants(): { Instance }
+```
+
+#### IsDescendantOf <a href="#getdescendants" id="getdescendants"></a>
+
+```lua
+function Instance:IsDescendantOf(parent: Instance): boolean
+```
+
+#### FindFirstChildWhichIsA <a href="#getdescendants" id="getdescendants"></a>
+
+```lua
+function Instance:FindFirstChildWhichIsA(class: string): Instance
+```
+
+#### WaitForChild <a href="#waitforchild" id="waitforchild"></a>
+
+```lua
+function Instance:WaitForChild(name: string): Instance
+```
+# Mouse
+
+### Properties <a href="#properties" id="properties"></a>
+
+#### Mouse <a href="#primarypart" id="primarypart"></a>
+
+```
+Mouse.X: number
+```
+
+#### Mouse <a href="#primarypart" id="primarypart"></a>
+
+```
+Mouse.Y: number
+```
+# Players
+
+### Properties <a href="#properties" id="properties"></a>
+
+#### LocalPlayer <a href="#localplayer" id="localplayer"></a>
+
+```luau
+Players.LocalPlayer: Player
+```
+
+#### GetPlayers <a href="#localplayer" id="localplayer"></a>
+
+```luau
+function Players:GetPlayers(): Table
+```
+
+## PlayerAdded
+
+```luau
+Players.PlayerAdded:Connect(function(player))
+```
+
+## PlayerRemoving
+
+```luau
+Players.PlayerRemoving:Connect(function(player))
+```
+# Player
+
+### Properties <a href="#properties" id="properties"></a>
+
+#### Character <a href="#localplayer" id="localplayer"></a>
+
+```
+Player.Character: Model
+```
+
+#### Team
+
+```lua
+Player.Team: Team
+```
+
+### Methods <a href="#methods" id="methods"></a>
+
+#### GetMouse <a href="#httpget" id="httpget"></a>
+
+```lua
+function Player:GetMouse(): Mouse
+```
+
+#### GetPlayers <a href="#httpget" id="httpget"></a>
+
+```lua
+function Players:GetPlayers(): table
+```
+# ValueBase
+
+`ObjectValue`, `Color3Value`, `NumberValue`, `IntValue`, `FloatValue`, `BoolValue`, and `StringValue` all inherit from this class. For simplicity, they do not have separate sub-pages.
+
+### Properties <a href="#properties" id="properties"></a>
+
+#### Value <a href="#value" id="value"></a>
+
+```
+ValueBase.Value: any
+```
+# GuiObject
+
+### Properties
+
+#### AbsoluteSize
+
+```lua
+GuiObject.AbsoluteSize: Vector2
+```
+
+#### AbsolutePosition
+
+```lua
+GuiObject.AbsolutePosition: Vector2
+```
+# TextLabel
+
+### Properties
+
+```lua
+TextLabel.Text: string
+```
+# MeshPart
+
+### Properties
+
+#### TextureId
+
+```lua
+MeshPart.TextureId: string
+```
+
+#### MeshId
+
+```lua
+MeshPart.MeshId: string
+```
+# UserInputService
+
+## UserInputService
+
+```luau
+local UserInputService = game:GetService("UserInputService")
+```
+
+## InputBegan
+
+```luau
+ UserInputService.InputBegan:Connect(function(input: InputObject, gameProcessed: boolean))
+```
+
+## InputEnded
+
+```luau
+UserInputService.InputEnded:Connect(function(input: InputObject, gameProcessed: boolean))
+```
+# Dataypes
+
+- [Vector3](/matcha/luau-environment/dataypes/vector3.md): https://create.roblox.com/docs/reference/engine/datatypes/Vector3
+- [Vector2](/matcha/luau-environment/dataypes/vector2.md): https://create.roblox.com/docs/reference/engine/datatypes/Vector2
+- [Color3](/matcha/luau-environment/dataypes/color3.md)
+
+# Vector3
+
+The [Vector3](https://create.roblox.com/docs/reference/engine/datatypes/Vector3) data type represents a vector in 3D space, typically used as a point in 3D space or the dimensions of a rectangular prism.
+
+### Constructors <a href="#properties" id="properties"></a>
+
+#### new <a href="#size" id="size"></a>
+
+```lua
+Vector3.new(x : number, y : number, z : number)
+```
+
+Returns a new [Vector3](https://create.roblox.com/docs/reference/engine/datatypes/Vector3) from the given x, y, and z components.
+
+### Properties <a href="#properties" id="properties"></a>
+
+#### X <a href="#size" id="size"></a>
+
+```lua
+Vector3.X: number
+```
+
+#### Y <a href="#size" id="size"></a>
+
+```lua
+Vector3.Y: number
+```
+
+#### Z <a href="#size" id="size"></a>
+
+```lua
+Vector3.Z: number
+```
+# Vector2
+
+The [Vector2](https://create.roblox.com/docs/reference/engine/datatypes/Vector2) data type represents a 2D value with direction and magnitude. Some applications include GUI elements and 2D mouse positions.
+
+### Constructors <a href="#properties" id="properties"></a>
+
+#### new <a href="#size" id="size"></a>
+
+```lua
+Vector2.new(x : number, y : number)
+```
+
+Returns a [Vector2](https://create.roblox.com/docs/reference/engine/datatypes/Vector2) from the given x and y components.
+
+### Properties <a href="#properties" id="properties"></a>
+
+#### X <a href="#size" id="size"></a>
+
+```lua
+Vector2.X: number
+```
+
+#### Y <a href="#size" id="size"></a>
+
+```lua
+Vector2.Y: number
+```
+# Color3
+
+The [Color3](https://create.roblox.com/docs/reference/engine/datatypes/Color3) data type describes a color using red, green, and blue components in the range of 0 to 1. Unlike the [BrickColor](https://create.roblox.com/docs/reference/engine/datatypes/BrickColor) data type which describes named colors, [Color3](https://create.roblox.com/docs/reference/engine/datatypes/Color3) is used for precise coloring of objects on screen through properties like [BasePart.Color](https://create.roblox.com/docs/reference/engine/classes/BasePart#Color).
+
+### Constructors <a href="#properties" id="properties"></a>
+
+#### new <a href="#size" id="size"></a>
+
+```lua
+Color3.new(red: number, green: number, blue: number)
+```
+
+Returns a [Color3](https://create.roblox.com/docs/reference/engine/datatypes/Color3) with the given red, green, and blue values.
+
+#### fromRGB <a href="#size" id="size"></a>
+
+```lua
+Color3.fromRGB(red: number, green: number, blue: number)
+```
+
+Returns a [Color3](https://create.roblox.com/docs/reference/engine/datatypes/Color3) from given components within the range of 0 to 255.
+
+#### fromHSV <a href="#size" id="size"></a>
+
+```lua
+Color3.fromHSV(hue: number, saturation: number, value: number)
+```
+
+Returns a [Color3](https://create.roblox.com/docs/reference/engine/datatypes/Color3) from the given hue, saturation, and value components.
+
+#### fromHex <a href="#size" id="size"></a>
+
+```lua
+Color3.fromHex(hex: string)
+```
+
+Returns a [Color3](https://create.roblox.com/docs/reference/engine/datatypes/Color3) from a given hex value.
+
+### Properties <a href="#properties" id="properties"></a>
+
+#### R <a href="#size" id="size"></a>
+
+```lua
+Color3.R: number
+```
+
+#### G <a href="#size" id="size"></a>
+
+```lua
+Color3.G: number
+```
+
+#### B <a href="#size" id="size"></a>
+
+```lua
+Color3.B: number
+```
+# Drawing
+
+#### Example code
+
+The following snippet will display a red square on the user's screen for 5 seconds.
+
+```lua
+local square = Drawing.new("Square")
+square.Filled = true
+square.Color = Color3.fromRGB(255, 0, 0)
+square.Position = Vector2.new(20, 20)
+square.Size = Vector2.new(200, 200)
+square.Visible = true
+square.Corner = 20
+wait(5)
+square:Remove()
+```
+# Drawing
+
+### Constructors
+
+#### new
+
+```lua
+Drawing.new(drawingType: string): DrawingObject
+```
+
+`drawingType` must be one of the following types:
+
+* Square
+* Line
+* Circle
+* Text
+* Triangle
+
+# DrawingObject
+
+### Methods
+
+#### Remove
+
+```lua
+function DrawingObject:Remove(): nil
+```
+
+### Base properties
+
+Shared set of properties across all `DrawingObject` types
+
+#### Color
+
+```lua
+DrawingObject.Color: Color3
+```
+
+#### Transparency
+
+```lua
+DrawingObject.Transparency: number
+```
+
+#### Visible
+
+```lua
+DrawingObject.Visible: bool
+```
+
+#### Position
+
+```lua
+DrawingObject.Position: Vector2
+```
+
+#### ZIndex
+
+```lua
+DrawingObject.ZIndex: int
+```
+
+### Square properties
+
+#### Size
+
+```lua
+DrawingObject.Size: Vector2
+```
+
+#### Filled
+
+```lua
+DrawingObject.Filled: bool
+```
+
+### Line properties
+
+#### From
+
+```lua
+DrawingObject.From: Vector2
+```
+
+#### To
+
+```lua
+DrawingObject.To: Vector2
+```
+
+#### Thickness
+
+```lua
+DrawingObject.Thickness: int
+```
+
+### Circle properties
+
+#### Radius
+
+```lua
+DrawingObject.Radius: float
+```
+
+#### NumSides
+
+```lua
+DrawingObject.NumSides: int
+```
+
+#### Thickness
+
+```lua
+DrawingObject.Thickness: int
+```
+
+### Text properties
+
+#### Text
+
+```lua
+DrawingObject.Text: string
+```
+
+#### Outline
+
+```lua
+DrawingObject.Outline: bool
+```
+
+#### Center
+
+```lua
+DrawingObject.Center: bool
+```
+
+#### Font
+
+```lua
+DrawingObject.Font: Font
+```
+
+#### FontSize
+
+```lua
+DrawingObject.Size: Int
+```
+
+### Triangle properties
+
+#### PointA
+
+```lua
+DrawingObject.PointA: Vector2
+```
+
+#### PointB
+
+```lua
+DrawingObject.PointB: Vector2
+```
+
+#### PointC
+
+```
+DrawingObject.PointC: Vector2
+```
+# Fonts
+
+## Fonts
+
+```
+Drawing.Fonts.UI | ProggyClean
+Drawing.Fonts.System | San Francisco
+Drawing.Fonts.SystemBold | SF Bold
+Drawing.Fonts.Minecraft | Minecraft
+Drawing.Fonts.Monospace | JetBrains
+Drawing.Fonts.Pixel | Pixel
+Drawing.Fonts.Fortnite | Fortnite
+```

@@ -1,0 +1,59 @@
+Arcane ESP
+The best esp library for matcha
+
+Initialization
+Fetch the library using the global HttpGet function.
+
+Copy
+loadstring(game:HttpGet("https://www.arcanecheats.xyz/api/matcha/esplib"))()
+Core Methods
+new
+Creates a new ESP tracking instance for a Model or BasePart.
+
+Copy
+ArcaneEsp.new(targetInstance)
+AddEsp
+Enables the 2D bounding box visual.
+
+Copy
+ArcaneEsp:AddEsp(Color3.fromRGB(127, 107, 188))
+AddTitle
+Adds a text label above the target instance.
+
+Copy
+ArcaneEsp:AddTitle(Color3.new(1, 1, 1), "Target Name")
+AddDistance
+Enables a real-time distance tracker below the target.
+
+Copy
+ArcaneEsp:AddDistance(Color3.new(1, 1, 1))
+Visual Customization
+SetFont
+Sets the Drawing font index for all text components.
+
+Copy
+ArcaneEsp:SetFont(0)
+AddGlow
+Applies a high-fidelity neon glow effect with custom spread depth.
+
+Copy
+ArcaneEsp:AddGlow(Color3.fromRGB(127, 107, 188), 8)
+Cleanup
+Destroy
+Disables the ESP tracking loop and removes all Drawing objects from the renderer.
+
+Copy
+ArcaneEsp:Destroy()
+Full Example Script
+Copy
+loadstring(game:HttpGet("https://www.arcanecheats.xyz/api/matcha/esplib"))()
+
+for _, p in ipairs(game.Players:GetPlayers()) do
+    if p.Character then
+        ArcaneEsp.new(p.Character)
+            :AddEsp(Color3.fromRGB(127, 107, 188))
+            :AddTitle(Color3.new(1, 1, 1), p.Name)
+            :AddDistance()
+            :AddGlow(Color3.fromRGB(127, 107, 188), 10)
+    end
+end
