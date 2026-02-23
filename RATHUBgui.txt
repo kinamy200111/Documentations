@@ -1,0 +1,742 @@
+local Mouse = game.Players.LocalPlayer:GetMouse()
+
+local Main1 = Drawing.new("Square")
+Main1.Visible = true
+Main1.Transparency = 1
+Main1.ZIndex = 10
+Main1.Color = Color3.fromHex("#0b0f1a")
+Main1.Position = Vector2.new(98, 20)
+Main1.Size = Vector2.new(604, 560)
+Main1.Filled = true
+Main1.Corner = 0
+
+VeryTopPlace_Parts = {}
+do
+    local gSteps=50 local gW=604 local gH=46
+    local r1,g1,b1=0x1a/255,0x15/255,0x30/255
+    local r2,g2,b2=0x0f/255,0x14/255,0x28/255
+    for i=0,gSteps-1 do
+        local t=i/(gSteps-1)
+        local sq=Drawing.new("Square")
+        sq.Visible=true sq.Transparency=1 sq.ZIndex=20
+        sq.Color=Color3.new(r1+(r2-r1)*t,g1+(g2-g1)*t,b1+(b2-b1)*t)
+        sq.Position=Vector2.new(Main1.Position.X+i*math.floor(gW/gSteps),Main1.Position.Y)
+        sq.Size=Vector2.new(math.floor(gW/gSteps)+1,gH)
+        sq.Filled=true sq.Corner=0
+        VeryTopPlace_Parts[i+1]=sq
+    end
+end
+local VeryTopPlace=VeryTopPlace_Parts[1]
+
+local Circle5 = Drawing.new("Circle")
+Circle5.Visible = true
+Circle5.Transparency = 1
+Circle5.ZIndex = 30
+Circle5.Color = Color3.fromHex("#ad47fe")
+Circle5.Position = Main1.Position + Vector2.new(25, 23)
+Circle5.Radius = 5
+Circle5.NumSides = 32
+Circle5.Thickness = 1
+Circle5.Filled = true
+
+_G.C5g1=Drawing.new("Circle") _G.C5g1.Visible=true _G.C5g1.Transparency=0.75 _G.C5g1.ZIndex=29 _G.C5g1.Color=Color3.fromHex("#ad47fe") _G.C5g1.Position=Circle5.Position _G.C5g1.Radius=9 _G.C5g1.NumSides=32 _G.C5g1.Thickness=2 _G.C5g1.Filled=false
+_G.C5g2=Drawing.new("Circle") _G.C5g2.Visible=true _G.C5g2.Transparency=0.88 _G.C5g2.ZIndex=28 _G.C5g2.Color=Color3.fromHex("#7b2fd4") _G.C5g2.Position=Circle5.Position _G.C5g2.Radius=13 _G.C5g2.NumSides=32 _G.C5g2.Thickness=1 _G.C5g2.Filled=false
+_G.C5g3=Drawing.new("Circle") _G.C5g3.Visible=true _G.C5g3.Transparency=0.93 _G.C5g3.ZIndex=27 _G.C5g3.Color=Color3.fromHex("#4a1a8a") _G.C5g3.Position=Circle5.Position _G.C5g3.Radius=17 _G.C5g3.NumSides=32 _G.C5g3.Thickness=1 _G.C5g3.Filled=false
+
+local TextRATHUB = Drawing.new("Text")
+TextRATHUB.Visible = true
+TextRATHUB.Transparency = 1
+TextRATHUB.ZIndex = 40
+TextRATHUB.Color = Color3.fromHex("#FFFFFF")
+TextRATHUB.Position = Main1.Position + Vector2.new(54, 17)
+TextRATHUB.Text = "RATHUB"
+TextRATHUB.Size = 14
+TextRATHUB.Center = false
+TextRATHUB.Outline = true
+TextRATHUB.Font = Drawing.Fonts.System
+
+_G.RHg1=Drawing.new("Text") _G.RHg1.Visible=true _G.RHg1.Transparency=0.78 _G.RHg1.ZIndex=38 _G.RHg1.Color=Color3.fromHex("#9d3df0") _G.RHg1.Position=Main1.Position+Vector2.new(53,16) _G.RHg1.Text="RATHUB" _G.RHg1.Size=14 _G.RHg1.Center=false _G.RHg1.Outline=false _G.RHg1.Font=Drawing.Fonts.System
+_G.RHg2=Drawing.new("Text") _G.RHg2.Visible=true _G.RHg2.Transparency=0.78 _G.RHg2.ZIndex=38 _G.RHg2.Color=Color3.fromHex("#9d3df0") _G.RHg2.Position=Main1.Position+Vector2.new(55,18) _G.RHg2.Text="RATHUB" _G.RHg2.Size=14 _G.RHg2.Center=false _G.RHg2.Outline=false _G.RHg2.Font=Drawing.Fonts.System
+_G.RHg3=Drawing.new("Text") _G.RHg3.Visible=true _G.RHg3.Transparency=0.86 _G.RHg3.ZIndex=37 _G.RHg3.Color=Color3.fromHex("#6b1db0") _G.RHg3.Position=Main1.Position+Vector2.new(52,15) _G.RHg3.Text="RATHUB" _G.RHg3.Size=14 _G.RHg3.Center=false _G.RHg3.Outline=false _G.RHg3.Font=Drawing.Fonts.System
+_G.RHg4=Drawing.new("Text") _G.RHg4.Visible=true _G.RHg4.Transparency=0.86 _G.RHg4.ZIndex=37 _G.RHg4.Color=Color3.fromHex("#6b1db0") _G.RHg4.Position=Main1.Position+Vector2.new(56,19) _G.RHg4.Text="RATHUB" _G.RHg4.Size=14 _G.RHg4.Center=false _G.RHg4.Outline=false _G.RHg4.Font=Drawing.Fonts.System
+
+local PlaceTabs = Drawing.new("Square")
+PlaceTabs.Visible = true
+PlaceTabs.Transparency = 1
+PlaceTabs.ZIndex = 50
+PlaceTabs.Color = Color3.fromHex("#0c1020")
+PlaceTabs.Position = Main1.Position + Vector2.new(2, 46)
+PlaceTabs.Size = Vector2.new(600, 43)
+PlaceTabs.Filled = true
+
+local VisualsTab = Drawing.new("Square")
+VisualsTab.Visible = true
+VisualsTab.Transparency = 1
+VisualsTab.ZIndex = 60
+VisualsTab.Color = Color3.fromHex("#0c1020")
+VisualsTab.Position = Main1.Position + Vector2.new(8, 50)
+VisualsTab.Size = Vector2.new(77, 36)
+VisualsTab.Filled = true
+VisualsTab.Corner = 8
+
+local VisualsTab_Text = Drawing.new("Text")
+VisualsTab_Text.Text = "Visuals"
+VisualsTab_Text.Size = 14
+VisualsTab_Text.Center = true
+VisualsTab_Text.Outline = true
+VisualsTab_Text.Font = 2
+VisualsTab_Text.Color = Color3.fromHex("#d5c0e4")
+VisualsTab_Text.Position = VisualsTab.Position + Vector2.new(77/2, 36/2)
+VisualsTab_Text.Visible = true
+VisualsTab_Text.ZIndex = 62
+
+local ExploitsTab = Drawing.new("Square")
+ExploitsTab.Visible = true
+ExploitsTab.Transparency = 1
+ExploitsTab.ZIndex = 70
+ExploitsTab.Color = Color3.fromHex("#0c1020")
+ExploitsTab.Position = Main1.Position + Vector2.new(100, 50)
+ExploitsTab.Size = Vector2.new(71, 35)
+ExploitsTab.Filled = true
+ExploitsTab.Corner = 8
+
+local ExploitsTab_Text = Drawing.new("Text")
+ExploitsTab_Text.Text = "Exploits"
+ExploitsTab_Text.Size = 14
+ExploitsTab_Text.Center = true
+ExploitsTab_Text.Outline = true
+ExploitsTab_Text.Font = 2
+ExploitsTab_Text.Color = Color3.fromHex("#d5c0e4")
+ExploitsTab_Text.Position = ExploitsTab.Position + Vector2.new(71/2, 35/2)
+ExploitsTab_Text.Visible = true
+ExploitsTab_Text.ZIndex = 72
+
+local MiscTab = Drawing.new("Square")
+MiscTab.Visible = true
+MiscTab.Transparency = 1
+MiscTab.ZIndex = 80
+MiscTab.Color = Color3.fromHex("#0c1020")
+MiscTab.Position = Main1.Position + Vector2.new(186, 50)
+MiscTab.Size = Vector2.new(73, 35)
+MiscTab.Filled = true
+MiscTab.Corner = 8
+
+local MiscTab_Text = Drawing.new("Text")
+MiscTab_Text.Text = "Misc"
+MiscTab_Text.Size = 14
+MiscTab_Text.Center = true
+MiscTab_Text.Outline = true
+MiscTab_Text.Font = 2
+MiscTab_Text.Color = Color3.fromHex("#d5c0e4")
+MiscTab_Text.Position = MiscTab.Position + Vector2.new(73/2, 35/2)
+MiscTab_Text.Visible = true
+MiscTab_Text.ZIndex = 82
+
+local SettingsTab = Drawing.new("Square")
+SettingsTab.Visible = true
+SettingsTab.Transparency = 1
+SettingsTab.ZIndex = 90
+SettingsTab.Color = Color3.fromHex("#0c1020")
+SettingsTab.Position = Main1.Position + Vector2.new(273, 50)
+SettingsTab.Size = Vector2.new(73, 35)
+SettingsTab.Filled = true
+SettingsTab.Corner = 8
+
+local SettingsTab_Text = Drawing.new("Text")
+SettingsTab_Text.Text = "Settings"
+SettingsTab_Text.Size = 14
+SettingsTab_Text.Center = true
+SettingsTab_Text.Outline = true
+SettingsTab_Text.Font = 2
+SettingsTab_Text.Color = Color3.fromHex("#d5c0e4")
+SettingsTab_Text.Position = SettingsTab.Position + Vector2.new(73/2, 35/2)
+SettingsTab_Text.Visible = true
+SettingsTab_Text.ZIndex = 92
+
+local function setActiveTab(activeBg,activeText)
+    local tc=(_G._th_tab or "#0c1020") local tt=(_G._th_txt or "#d5c0e4") local ta=(_G._th_tabActive or "#6b12a9") local tA=(_G._th_txtActive or "#e7feff")
+    local tabs={{bg=VisualsTab,text=VisualsTab_Text},{bg=ExploitsTab,text=ExploitsTab_Text},{bg=MiscTab,text=MiscTab_Text},{bg=SettingsTab,text=SettingsTab_Text}}
+    for _,t in ipairs(tabs) do t.bg.Color=Color3.fromHex(tc) t.text.Color=Color3.fromHex(tt) end
+    activeBg.Color=Color3.fromHex(ta) activeText.Color=Color3.fromHex(tA)
+    _G._activeTabBg=activeBg _G._activeTabTxt=activeText
+end
+local Line1 = Drawing.new("Square")
+Line1.Visible = true
+Line1.Transparency = 1
+Line1.ZIndex = 100
+Line1.Color = Color3.fromHex("#171b2e")
+Line1.Position = Main1.Position + Vector2.new(0, 45)
+Line1.Size = Vector2.new(602, 2)
+Line1.Filled = true
+Line1.Corner = 1
+
+local Line2 = Drawing.new("Square")
+Line2.Visible = true
+Line2.Transparency = 1
+Line2.ZIndex = 110
+Line2.Color = Color3.fromHex("#171b2e")
+Line2.Position = Main1.Position + Vector2.new(0, 89)
+Line2.Size = Vector2.new(602, 2)
+Line2.Filled = true
+Line2.Corner = 1
+
+local ContentPageVisuals = Drawing.new("Square")
+ContentPageVisuals.Visible = false
+ContentPageVisuals.Transparency = 1
+ContentPageVisuals.ZIndex = 120
+ContentPageVisuals.Color = Color3.fromHex("#0c1020")
+ContentPageVisuals.Position = Main1.Position + Vector2.new(25, 114)
+ContentPageVisuals.Size = Vector2.new(534, 132)
+ContentPageVisuals.Filled = true
+ContentPageVisuals.Corner = 5
+
+local ContentPageVisuals_Border = Drawing.new("Square")
+ContentPageVisuals_Border.Visible = false
+ContentPageVisuals_Border.Transparency = 1
+ContentPageVisuals_Border.ZIndex = 121
+ContentPageVisuals_Border.Color = Color3.fromHex("#13172a")
+ContentPageVisuals_Border.Filled = false
+ContentPageVisuals_Border.Thickness = 3
+ContentPageVisuals_Border.Position = ContentPageVisuals.Position
+ContentPageVisuals_Border.Size = ContentPageVisuals.Size
+ContentPageVisuals_Border.Corner = 5
+
+local ContentPageExploits = Drawing.new("Square")
+ContentPageExploits.Visible = false
+ContentPageExploits.Transparency = 1
+ContentPageExploits.ZIndex = 440
+ContentPageExploits.Color = Color3.fromHex("#0c1020")
+ContentPageExploits.Position = Main1.Position + Vector2.new(19, 107)
+ContentPageExploits.Size = Vector2.new(532, 300)
+ContentPageExploits.Filled = true
+ContentPageExploits.Corner = 5
+
+local ContentPageExploits_Border = Drawing.new("Square")
+ContentPageExploits_Border.Visible = false
+ContentPageExploits_Border.Transparency = 1
+ContentPageExploits_Border.ZIndex = 441
+ContentPageExploits_Border.Color = Color3.fromHex("#13172a")
+ContentPageExploits_Border.Filled = false
+ContentPageExploits_Border.Thickness = 3
+ContentPageExploits_Border.Position = ContentPageExploits.Position
+ContentPageExploits_Border.Size = ContentPageExploits.Size
+ContentPageExploits_Border.Corner = 5
+
+local ContentPageMisc = Drawing.new("Square")
+ContentPageMisc.Visible = false
+ContentPageMisc.Transparency = 1
+ContentPageMisc.ZIndex = 470
+ContentPageMisc.Color = Color3.fromHex("#0c1020")
+ContentPageMisc.Position = Main1.Position + Vector2.new(14, 106)
+ContentPageMisc.Size = Vector2.new(332, 175)
+ContentPageMisc.Filled = true
+ContentPageMisc.Corner = 5
+
+local ContentPageMisc_Border = Drawing.new("Square")
+ContentPageMisc_Border.Visible = false
+ContentPageMisc_Border.Transparency = 1
+ContentPageMisc_Border.ZIndex = 471
+ContentPageMisc_Border.Color = Color3.fromHex("#13172a")
+ContentPageMisc_Border.Filled = false
+ContentPageMisc_Border.Thickness = 3
+ContentPageMisc_Border.Position = ContentPageMisc.Position
+ContentPageMisc_Border.Size = ContentPageMisc.Size
+ContentPageMisc_Border.Corner = 5
+
+local ContentPageSettings = Drawing.new("Square")
+ContentPageSettings.Visible = false
+ContentPageSettings.Transparency = 1
+ContentPageSettings.ZIndex = 520
+ContentPageSettings.Color = Color3.fromHex("#0c1020")
+ContentPageSettings.Position = Main1.Position + Vector2.new(25, 111)
+ContentPageSettings.Size = Vector2.new(332, 300)
+ContentPageSettings.Filled = true
+ContentPageSettings.Corner = 5
+
+local ContentPageSettings_Border = Drawing.new("Square")
+ContentPageSettings_Border.Visible = false
+ContentPageSettings_Border.Transparency = 1
+ContentPageSettings_Border.ZIndex = 521
+ContentPageSettings_Border.Color = Color3.fromHex("#13172a")
+ContentPageSettings_Border.Filled = false
+ContentPageSettings_Border.Thickness = 3
+ContentPageSettings_Border.Position = ContentPageSettings.Position
+ContentPageSettings_Border.Size = ContentPageSettings.Size
+ContentPageSettings_Border.Corner = 5
+
+local ToggleUIvisiblity = Drawing.new("Square")
+ToggleUIvisiblity.Visible = false
+ToggleUIvisiblity.Transparency = 1
+ToggleUIvisiblity.Color = Color3.fromHex("#6c11ae")
+ToggleUIvisiblity.Filled = true
+ToggleUIvisiblity.Size = Vector2.new(74, 16)
+ToggleUIvisiblity.Position = Vector2.new(135, 145)
+ToggleUIvisiblity.ZIndex = 530
+ToggleUIvisiblity.Corner = 10
+local ToggleUIvisiblity_Text = Drawing.new("Text")
+ToggleUIvisiblity_Text.Text = "[ F1 ]"
+ToggleUIvisiblity_Text.Size = 12
+ToggleUIvisiblity_Text.Center = true
+ToggleUIvisiblity_Text.Outline = true
+ToggleUIvisiblity_Text.Font = 0
+ToggleUIvisiblity_Text.Color = Color3.fromHex("#eae0e2")
+ToggleUIvisiblity_Text.Position = ToggleUIvisiblity.Position + Vector2.new(74/2, 16/2)
+ToggleUIvisiblity_Text.Visible = false
+ToggleUIvisiblity_Text.ZIndex = 532
+local ToggleUIvisiblity_Key = 0x70
+local ToggleUIvisiblity_IsListening = false
+
+_G.uiThemes={
+{name="Dark Purple",bg="#0b0f1a",panel="#0c1020",tab="#0c1020",tabActive="#6b12a9",line="#171b2e",border="#1a1e35",accent="#ad47fe",swbg="#1a1a2e",swon="#6b12a9",txt="#d5c0e4",txtActive="#e7feff",wmbg="#0c0d1e",wmborder="#1a1e35",grad1="#1a1530",grad2="#0f1428"},
+{name="Midnight Blue",bg="#080d18",panel="#0a0f1c",tab="#0a0f1c",tabActive="#0f4fa8",line="#10172a",border="#131c35",accent="#2e8bff",swbg="#0d1627",swon="#0f4fa8",txt="#b8ccf0",txtActive="#ddeeff",wmbg="#080e1c",wmborder="#101828",grad1="#0d1530",grad2="#080d20"},
+{name="Acid Green",bg="#080f0a",panel="#091208",tab="#091208",tabActive="#1a7a12",line="#0f1e0d",border="#122010",accent="#39ff14",swbg="#0d1a0b",swon="#1a7a12",txt="#a8e8a0",txtActive="#d8ffd4",wmbg="#080f08",wmborder="#0e1e0c",grad1="#0d1f0c",grad2="#081408"},
+{name="Rose Dark",bg="#160a0e",panel="#190c10",tab="#190c10",tabActive="#8a1240",line="#2a0f16",border="#2e1018",accent="#ff3878",swbg="#251014",swon="#8a1240",txt="#e8b0c0",txtActive="#ffd8e4",wmbg="#130a0e",wmborder="#2a0f16",grad1="#2a0f18",grad2="#160a0e"},
+{name="Monochrome",bg="#101010",panel="#141414",tab="#141414",tabActive="#505050",line="#202020",border="#2a2a2a",accent="#cccccc",swbg="#1e1e1e",swon="#505050",txt="#aaaaaa",txtActive="#ffffff",wmbg="#0e0e0e",wmborder="#202020",grad1="#1a1a1a",grad2="#0e0e0e"},
+{name="Fire",bg="#140804",panel="#180a04",tab="#180a04",tabActive="#c43000",line="#251208",border="#2e1608",accent="#ff6a00",swbg="#221008",swon="#c43000",txt="#f0c090",txtActive="#ffe8c8",wmbg="#120703",wmborder="#2a1206",grad1="#2e1408",grad2="#180a04"},
+{name="Near Black",bg="#060606",panel="#080808",tab="#080808",tabActive="#2a2a2a",line="#0e0e0e",border="#181818",accent="#888888",swbg="#111111",swon="#2a2a2a",txt="#777777",txtActive="#cccccc",wmbg="#050505",wmborder="#111111",grad1="#0d0d0d",grad2="#060606"},
+{name="Ocean",bg="#040e18",panel="#051220",tab="#051220",tabActive="#0a6e8a",line="#0a1e30",border="#0d2440",accent="#00d4ff",swbg="#091825",swon="#0a6e8a",txt="#90d8f0",txtActive="#ccf4ff",wmbg="#040c16",wmborder="#0a1e30",grad1="#081830",grad2="#040e20"},
+{name="Sunset",bg="#12060e",panel="#180810",tab="#180810",tabActive="#8a2060",line="#220e1a",border="#2e1222",accent="#ff60a8",swbg="#1e0c16",swon="#8a2060",txt="#e8a8c8",txtActive="#ffd8e8",wmbg="#10060c",wmborder="#200e18",grad1="#240e1c",grad2="#12060e"},
+{name="Toxic",bg="#070e08",panel="#091209",tab="#091209",tabActive="#1a8c10",line="#0e200d",border="#122610",accent="#80ff00",swbg="#0e1a0c",swon="#1a8c10",txt="#b0e890",txtActive="#d8ffa8",wmbg="#070e07",wmborder="#0e200c",grad1="#0e2010",grad2="#070e08"},
+{name="Crimson",bg="#110408",panel="#15050a",tab="#15050a",tabActive="#8c0a1a",line="#200810",border="#2a0c14",accent="#ff2040",swbg="#1e0810",swon="#8c0a1a",txt="#e88898",txtActive="#ffc8d0",wmbg="#0e0406",wmborder="#200810",grad1="#220810",grad2="#110408"}
+}
+_G.uiThemeActive=1
+_G._swBgs={} _G._swIsChecked={}
+function _G._applyTheme(t)
+    _G._th_tab=t.tab _G._th_tabActive=t.tabActive _G._th_txt=t.txt _G._th_txtActive=t.txtActive
+    _G._th_swbg=t.swbg _G._th_swon=t.swon _G._th_accent=t.accent
+    local function hexDim(h,f) local r=tonumber(h:sub(2,3),16)/255*f local g=tonumber(h:sub(4,5),16)/255*f local b=tonumber(h:sub(6,7),16)/255*f return Color3.new(math.min(r,1),math.min(g,1),math.min(b,1)) end
+    Main1.Color=Color3.fromHex(t.bg)
+    PlaceTabs.Color=Color3.fromHex(t.panel)
+    Line1.Color=Color3.fromHex(t.line) Line2.Color=Color3.fromHex(t.line)
+    local g1r,g1g,g1b=tonumber(t.grad1:sub(2,3),16)/255,tonumber(t.grad1:sub(4,5),16)/255,tonumber(t.grad1:sub(6,7),16)/255
+    local g2r,g2g,g2b=tonumber(t.grad2:sub(2,3),16)/255,tonumber(t.grad2:sub(4,5),16)/255,tonumber(t.grad2:sub(6,7),16)/255
+    for i,sq in ipairs(VeryTopPlace_Parts) do local tt=(i-1)/49 sq.Color=Color3.new(g1r+(g2r-g1r)*tt,g1g+(g2g-g1g)*tt,g1b+(g2b-g1b)*tt) end
+    for _,cp in ipairs({ContentPageVisuals,ContentPageExploits,ContentPageMisc,ContentPageSettings}) do pcall(function() cp.Color=Color3.fromHex(t.panel) end) end
+    pcall(function()
+    end)
+    local _ab=_G._activeTabBg local _at=_G._activeTabTxt
+    for _,td in ipairs({{bg=VisualsTab,txt=VisualsTab_Text},{bg=ExploitsTab,txt=ExploitsTab_Text},{bg=MiscTab,txt=MiscTab_Text},{bg=SettingsTab,txt=SettingsTab_Text}}) do
+        if td.bg==_ab then td.bg.Color=Color3.fromHex(t.tabActive) td.txt.Color=Color3.fromHex(t.txtActive)
+        else td.bg.Color=Color3.fromHex(t.tab) td.txt.Color=Color3.fromHex(t.txt) end
+    end
+    pcall(function()
+        ContentPageVisuals_Border.Color=Color3.fromHex(t.border)
+        ContentPageExploits_Border.Color=Color3.fromHex(t.border)
+        ContentPageMisc_Border.Color=Color3.fromHex(t.border)
+        ContentPageSettings_Border.Color=Color3.fromHex(t.border)
+    end)
+    pcall(function()
+        if _G._swBgs then
+            for i,sw in ipairs(_G._swBgs) do
+                local chk=_G._swIsChecked and _G._swIsChecked[i]
+                if chk and chk() then sw.Color=Color3.fromHex(t.swon)
+                else sw.Color=Color3.fromHex(t.swbg) end
+            end
+        end
+    end)
+    pcall(function()
+    end)
+    Circle5.Color=Color3.fromHex(t.accent)
+    _G.C5g1.Color=Color3.fromHex(t.accent)
+    _G.C5g2.Color=hexDim(t.accent,0.55)
+    _G.C5g3.Color=hexDim(t.accent,0.30)
+    _G.RHg1.Color=Color3.fromHex(t.accent) _G.RHg2.Color=Color3.fromHex(t.accent)
+    _G.RHg3.Color=hexDim(t.accent,0.65) _G.RHg4.Color=hexDim(t.accent,0.65)
+    if _G.ThemeBtnText then _G.ThemeBtnText.Text=t.name end
+    if _G.EffStyleBtnText then _G.EffStyleBtnText.Color=Color3.fromHex(t.txtActive) end
+    if _G.TxtStyleBtnText then _G.TxtStyleBtnText.Color=Color3.fromHex(t.txtActive) end
+    if _G.ThemeBtnText then _G.ThemeBtnText.Color=Color3.fromHex(t.txtActive) end
+    if _G.EffStyleArrow then _G.EffStyleArrow.Color=Color3.fromHex(t.accent) end
+    if _G.TxtStyleArrow then _G.TxtStyleArrow.Color=Color3.fromHex(t.accent) end
+    if _G.ThemeArrow then _G.ThemeArrow.Color=Color3.fromHex(t.accent) end
+    if _G.EffStyleLabel then _G.EffStyleLabel.Color=Color3.fromHex(t.txt) end
+    if _G.TxtStyleLabel then _G.TxtStyleLabel.Color=Color3.fromHex(t.txt) end
+    if _G.ThemeLabel then _G.ThemeLabel.Color=Color3.fromHex(t.txt) end
+end
+_G.txtStyles={"Normal","UPPERCASE","lowercase","Glitch On","Rainbow Hue"}
+_G.txtActive=1
+_G.TxtStyleLabel=Drawing.new("Text") _G.TxtStyleLabel.Visible=false _G.TxtStyleLabel.Transparency=1 _G.TxtStyleLabel.ZIndex=542 _G.TxtStyleLabel.Color=Color3.fromHex("#c4b5d4") _G.TxtStyleLabel.Position=ContentPageSettings.Position+Vector2.new(9,68) _G.TxtStyleLabel.Text="Title Text Style" _G.TxtStyleLabel.Size=13 _G.TxtStyleLabel.Center=false _G.TxtStyleLabel.Outline=true _G.TxtStyleLabel.Font=Drawing.Fonts.Monospace
+_G.TxtStyleBtn=Drawing.new("Square") _G.TxtStyleBtn.Visible=false _G.TxtStyleBtn.Transparency=1 _G.TxtStyleBtn.ZIndex=543 _G.TxtStyleBtn.Color=Color3.fromHex("#261640") _G.TxtStyleBtn.Filled=true _G.TxtStyleBtn.Size=Vector2.new(140,18) _G.TxtStyleBtn.Corner=5 _G.TxtStyleBtn.Position=ContentPageSettings.Position+Vector2.new(190,64)
+_G.TxtStyleBtnText=Drawing.new("Text") _G.TxtStyleBtnText.Visible=false _G.TxtStyleBtnText.Transparency=1 _G.TxtStyleBtnText.ZIndex=544 _G.TxtStyleBtnText.Color=Color3.fromHex("#e0d0f5") _G.TxtStyleBtnText.Position=_G.TxtStyleBtn.Position+Vector2.new(70,9) _G.TxtStyleBtnText.Text=_G.txtStyles[_G.txtActive] _G.TxtStyleBtnText.Size=12 _G.TxtStyleBtnText.Center=true _G.TxtStyleBtnText.Outline=false _G.TxtStyleBtnText.Font=Drawing.Fonts.System
+_G.TxtStyleArrow=Drawing.new("Text") _G.TxtStyleArrow.Visible=false _G.TxtStyleArrow.Transparency=1 _G.TxtStyleArrow.ZIndex=545 _G.TxtStyleArrow.Color=Color3.fromHex("#9d3df0") _G.TxtStyleArrow.Position=_G.TxtStyleBtn.Position+Vector2.new(125,9) _G.TxtStyleArrow.Text="v" _G.TxtStyleArrow.Size=10 _G.TxtStyleArrow.Center=true _G.TxtStyleArrow.Outline=false _G.TxtStyleArrow.Font=Drawing.Fonts.System
+_G.ThemeLabel=Drawing.new("Text") _G.ThemeLabel.Visible=false _G.ThemeLabel.Transparency=1 _G.ThemeLabel.ZIndex=552 _G.ThemeLabel.Color=Color3.fromHex("#c4b5d4") _G.ThemeLabel.Position=ContentPageSettings.Position+Vector2.new(9,94) _G.ThemeLabel.Text="UI Theme" _G.ThemeLabel.Size=13 _G.ThemeLabel.Center=false _G.ThemeLabel.Outline=true _G.ThemeLabel.Font=Drawing.Fonts.Monospace
+_G.ThemeBtn=Drawing.new("Square") _G.ThemeBtn.Visible=false _G.ThemeBtn.Transparency=1 _G.ThemeBtn.ZIndex=553 _G.ThemeBtn.Color=Color3.fromHex("#261640") _G.ThemeBtn.Filled=true _G.ThemeBtn.Size=Vector2.new(140,18) _G.ThemeBtn.Corner=5 _G.ThemeBtn.Position=ContentPageSettings.Position+Vector2.new(190,90)
+_G.ThemeBtnText=Drawing.new("Text") _G.ThemeBtnText.Visible=false _G.ThemeBtnText.Transparency=1 _G.ThemeBtnText.ZIndex=554 _G.ThemeBtnText.Color=Color3.fromHex("#e0d0f5") _G.ThemeBtnText.Position=_G.ThemeBtn.Position+Vector2.new(70,9) _G.ThemeBtnText.Text=_G.uiThemes[_G.uiThemeActive].name _G.ThemeBtnText.Size=12 _G.ThemeBtnText.Center=true _G.ThemeBtnText.Outline=false _G.ThemeBtnText.Font=Drawing.Fonts.System
+_G.ThemeArrow=Drawing.new("Text") _G.ThemeArrow.Visible=false _G.ThemeArrow.Transparency=1 _G.ThemeArrow.ZIndex=555 _G.ThemeArrow.Color=Color3.fromHex("#9d3df0") _G.ThemeArrow.Position=_G.ThemeBtn.Position+Vector2.new(125,9) _G.ThemeArrow.Text="v" _G.ThemeArrow.Size=10 _G.ThemeArrow.Center=true _G.ThemeArrow.Outline=false _G.ThemeArrow.Font=Drawing.Fonts.System
+_G.effStyles={"Ripple Burst","Breathing","Rainbow","Shimmer","Orbit","Pulse","Comet","Static"}
+_G.effActive=1
+_G.EffStyleLabel=Drawing.new("Text") _G.EffStyleLabel.Visible=false _G.EffStyleLabel.Transparency=1 _G.EffStyleLabel.ZIndex=532 _G.EffStyleLabel.Color=Color3.fromHex("#c4b5d4") _G.EffStyleLabel.Position=ContentPageSettings.Position+Vector2.new(9,42) _G.EffStyleLabel.Text="Circle Effect Style" _G.EffStyleLabel.Size=13 _G.EffStyleLabel.Center=false _G.EffStyleLabel.Outline=true _G.EffStyleLabel.Font=Drawing.Fonts.Monospace
+_G.EffStyleBtn=Drawing.new("Square") _G.EffStyleBtn.Visible=false _G.EffStyleBtn.Transparency=1 _G.EffStyleBtn.ZIndex=533 _G.EffStyleBtn.Color=Color3.fromHex("#261640") _G.EffStyleBtn.Filled=true _G.EffStyleBtn.Size=Vector2.new(140,18) _G.EffStyleBtn.Corner=5 _G.EffStyleBtn.Position=ContentPageSettings.Position+Vector2.new(190,38)
+_G.EffStyleBtnText=Drawing.new("Text") _G.EffStyleBtnText.Visible=false _G.EffStyleBtnText.Transparency=1 _G.EffStyleBtnText.ZIndex=534 _G.EffStyleBtnText.Color=Color3.fromHex("#e0d0f5") _G.EffStyleBtnText.Position=_G.EffStyleBtn.Position+Vector2.new(70,9) _G.EffStyleBtnText.Text=_G.effStyles[_G.effActive] _G.EffStyleBtnText.Size=12 _G.EffStyleBtnText.Center=true _G.EffStyleBtnText.Outline=false _G.EffStyleBtnText.Font=Drawing.Fonts.System
+_G.EffStyleArrow=Drawing.new("Text") _G.EffStyleArrow.Visible=false _G.EffStyleArrow.Transparency=1 _G.EffStyleArrow.ZIndex=535 _G.EffStyleArrow.Color=Color3.fromHex("#9d3df0") _G.EffStyleArrow.Position=_G.EffStyleBtn.Position+Vector2.new(125,9) _G.EffStyleArrow.Text="v" _G.EffStyleArrow.Size=10 _G.EffStyleArrow.Center=true _G.EffStyleArrow.Outline=false _G.EffStyleArrow.Font=Drawing.Fonts.System
+
+spawn(function()
+    local IDLE=10 local BR=5
+    local lastB=os.clock()-IDLE local rainT=0 local shimT=0
+    while true do
+        task.wait(0.016)
+        if not Circle5.Visible then continue end
+        local now=os.clock() local eff=_G.effActive
+        local BC=Color3.fromHex(_G._th_accent or "#ad47fe")
+        if eff==1 then
+            local br=math.sin(now*1.2)*0.8
+            Circle5.Radius=BR+br Circle5.Color=BC
+            _G.C5g1.Transparency=0.75+math.sin(now*1.2)*0.15 _G.C5g1.Radius=9+br _G.C5g1.Color=BC
+            _G.C5g2.Transparency=0.88 _G.C5g2.Radius=13
+            _G.C5g3.Transparency=0.93 _G.C5g3.Radius=17
+            _G.C5g1.Position=Circle5.Position _G.C5g2.Position=Circle5.Position _G.C5g3.Position=Circle5.Position
+            if os.clock()-lastB>=IDLE then
+                lastB=os.clock()
+                local fs=os.clock()
+                while os.clock()-fs<0.25 do
+                    task.wait(0.016) if not Circle5.Visible then break end
+                    local p2=(os.clock()-fs)/0.25 local lp=math.sin(p2*math.pi)
+                    Circle5.Radius=BR+lp*4
+                    _G.C5g1.Radius=10+lp*8 _G.C5g1.Transparency=0.3-lp*0.25
+                    _G.C5g2.Radius=15+lp*10 _G.C5g2.Transparency=0.6-lp*0.4
+                    _G.C5g3.Radius=20+lp*14 _G.C5g3.Transparency=0.75-lp*0.5
+                end
+                Circle5.Color=BC Circle5.Radius=BR
+                for _,d in ipairs({0,0.12,0.24}) do spawn(function()
+                    task.wait(d) if not Circle5.Visible then return end
+                    local rs=os.clock()
+                    while os.clock()-rs<0.7 do
+                        task.wait(0.016) if not Circle5.Visible then break end
+                        local rp=(os.clock()-rs)/0.7 local rr=6+rp*22
+                        _G.C5g1.Position=Circle5.Position _G.C5g2.Position=Circle5.Position _G.C5g3.Position=Circle5.Position
+                        if d==0 then _G.C5g1.Radius=rr _G.C5g1.Transparency=0.2+rp*0.8
+                        elseif d==0.12 then _G.C5g2.Radius=rr _G.C5g2.Transparency=0.3+rp*0.7
+                        else _G.C5g3.Radius=rr _G.C5g3.Transparency=0.4+rp*0.6 end
+                    end
+                    if d==0 then _G.C5g1.Radius=9 _G.C5g1.Transparency=0.75
+                    elseif d==0.12 then _G.C5g2.Radius=13 _G.C5g2.Transparency=0.88
+                    else _G.C5g3.Radius=17 _G.C5g3.Transparency=0.93 end
+                end) end
+            end
+        elseif eff==2 then
+            local br2=(math.sin(now*1.5)+1)/2
+            Circle5.Radius=4+br2*4 Circle5.Color=BC
+            _G.C5g1.Radius=9+br2*4 _G.C5g1.Transparency=0.5+br2*0.45 _G.C5g1.Color=BC
+            _G.C5g2.Radius=13+br2*5 _G.C5g2.Transparency=0.65+br2*0.3
+            _G.C5g3.Radius=17+br2*7 _G.C5g3.Transparency=0.78+br2*0.2
+            _G.C5g1.Position=Circle5.Position _G.C5g2.Position=Circle5.Position _G.C5g3.Position=Circle5.Position
+        elseif eff==3 then
+            rainT=rainT+0.016
+            local h2=(rainT*0.15)%1
+            local function hsvF(hh,s,v) local i=math.floor(hh*6) local f=hh*6-i local pp=v*(1-s) local q=v*(1-f*s) local t2=v*(1-(1-f)*s) i=i%6 if i==0 then return v,t2,pp elseif i==1 then return q,v,pp elseif i==2 then return pp,v,t2 elseif i==3 then return pp,q,v elseif i==4 then return t2,pp,v else return v,pp,q end end
+            local r3,g3,b3=hsvF(h2,0.8,1)
+            Circle5.Color=Color3.new(r3,g3,b3) Circle5.Radius=5
+            _G.C5g1.Color=Color3.new(r3,g3,b3) _G.C5g1.Radius=9 _G.C5g1.Transparency=0.7
+            _G.C5g2.Color=Color3.new(r3*0.7,g3*0.7,b3*0.7) _G.C5g2.Radius=13 _G.C5g2.Transparency=0.85
+            _G.C5g3.Color=Color3.new(r3*0.4,g3*0.4,b3*0.4) _G.C5g3.Radius=17 _G.C5g3.Transparency=0.92
+            _G.C5g1.Position=Circle5.Position _G.C5g2.Position=Circle5.Position _G.C5g3.Position=Circle5.Position
+        elseif eff==4 then
+            shimT=shimT+0.016
+            local fl=math.max(0,1-((shimT%4)*0.7))
+            Circle5.Color=BC Circle5.Radius=5
+            _G.C5g1.Radius=9+fl*8 _G.C5g1.Transparency=0.75-fl*0.65 _G.C5g1.Color=Color3.fromHex("#ffffff")
+            _G.C5g2.Radius=13+fl*12 _G.C5g2.Transparency=0.88-fl*0.7
+            _G.C5g3.Radius=17+fl*16 _G.C5g3.Transparency=0.93-fl*0.75 _G.C5g3.Color=BC
+            _G.C5g1.Position=Circle5.Position _G.C5g2.Position=Circle5.Position _G.C5g3.Position=Circle5.Position
+        elseif eff==5 then
+
+            Circle5.Radius=BR Circle5.Color=BC
+            _G.C5g1.Radius=5 _G.C5g1.Transparency=0.50 _G.C5g1.Color=BC
+            _G.C5g2.Radius=5 _G.C5g2.Transparency=0.62 _G.C5g2.Color=BC
+            _G.C5g3.Radius=5 _G.C5g3.Transparency=0.75 _G.C5g3.Color=BC
+            _G.C5g1.Position=Circle5.Position+Vector2.new(math.cos(now*2.8)*11, math.sin(now*2.8)*11)
+            _G.C5g2.Position=Circle5.Position+Vector2.new(math.cos(-now*1.9+2.094)*17, math.sin(-now*1.9+2.094)*17)
+            _G.C5g3.Position=Circle5.Position+Vector2.new(math.cos(now*1.3+4.189)*23, math.sin(now*1.3+4.189)*23)
+        elseif eff==6 then
+
+            local pt=(now*2.5)%1
+            local pb2=pt<0.18 and (1-pt/0.18) or 0
+            Circle5.Radius=BR+pb2*6 Circle5.Color=BC
+            _G.C5g1.Radius=9+pb2*12 _G.C5g1.Transparency=0.75-pb2*0.65 _G.C5g1.Color=Color3.fromHex("#ffffff")
+            _G.C5g2.Radius=13+pb2*18 _G.C5g2.Transparency=0.88-pb2*0.75 _G.C5g2.Color=BC
+            _G.C5g3.Radius=17+pb2*24 _G.C5g3.Transparency=0.93-pb2*0.82 _G.C5g3.Color=BC
+            _G.C5g1.Position=Circle5.Position _G.C5g2.Position=Circle5.Position _G.C5g3.Position=Circle5.Position
+        elseif eff==7 then
+
+            local ct=(now*3.6)%(2*math.pi)
+            Circle5.Radius=BR Circle5.Color=BC
+            _G.C5g1.Radius=7 _G.C5g1.Transparency=0.40 _G.C5g1.Color=Color3.fromHex("#ffffff")
+            _G.C5g2.Radius=5 _G.C5g2.Transparency=0.62 _G.C5g2.Color=BC
+            _G.C5g3.Radius=4 _G.C5g3.Transparency=0.80 _G.C5g3.Color=BC
+            _G.C5g1.Position=Circle5.Position+Vector2.new(math.cos(ct)*16,math.sin(ct)*16)
+            _G.C5g2.Position=Circle5.Position+Vector2.new(math.cos(ct-0.5)*16,math.sin(ct-0.5)*16)
+            _G.C5g3.Position=Circle5.Position+Vector2.new(math.cos(ct-1.0)*16,math.sin(ct-1.0)*16)
+        else
+
+            Circle5.Radius=5 Circle5.Color=BC
+            _G.C5g1.Radius=9 _G.C5g1.Transparency=0.75 _G.C5g1.Color=BC
+            _G.C5g2.Radius=13 _G.C5g2.Transparency=0.88
+            _G.C5g3.Radius=17 _G.C5g3.Transparency=0.93
+            _G.C5g1.Position=Circle5.Position _G.C5g2.Position=Circle5.Position _G.C5g3.Position=Circle5.Position
+        end
+    end
+end)
+
+spawn(function()
+    local T_TR={0.78,0.78,0.86,0.86}
+    local glowT={_G.RHg1,_G.RHg2,_G.RHg3,_G.RHg4}
+    local DT=0.05 local breathT=0 local glitchTicks=0 local glitchCooldown=0 local rainHue=0
+    local GCOL={Color3.fromHex("#ad47fe"),Color3.fromHex("#5c61e3"),Color3.fromHex("#ff3cac"),Color3.fromHex("#00f0ff"),Color3.fromHex("#c084fc"),Color3.fromHex("#FFFFFF"),Color3.fromHex("#FFFFFF"),Color3.fromHex("#FFFFFF")}
+    local GOFF={Vector2.new(-4,-1),Vector2.new(4,1),Vector2.new(-3,1),Vector2.new(3,-1),Vector2.new(-5,0),Vector2.new(5,0),Vector2.new(0,-2),Vector2.new(0,2)}
+    while true do
+        task.wait(DT) breathT=breathT+DT
+        local ts=_G.txtActive
+        if ts==3 then TextRATHUB.Text="rathub" for _,g in ipairs(glowT) do g.Text="rathub" end
+        elseif ts==4 then
+            local col=GCOL[math.random(1,#GCOL)] local off=GOFF[math.random(1,#GOFF)]
+            TextRATHUB.Color=col TextRATHUB.Position=Main1.Position+Vector2.new(54,17)+off TextRATHUB.Outline=(math.random(1,2)==1)
+            for i,g in ipairs(glowT) do g.Color=GCOL[math.random(1,#GCOL)] g.Position=Main1.Position+Vector2.new(54,17)+GOFF[math.random(1,#GOFF)] end
+        elseif ts==5 then
+            rainHue=(rainHue+DT*0.3)%1
+            local function hsv2(h,s,v) local i=math.floor(h*6) local f=h*6-i local pp=v*(1-s) local q=v*(1-f*s) local t2=v*(1-(1-f)*s) i=i%6 if i==0 then return v,t2,pp elseif i==1 then return q,v,pp elseif i==2 then return pp,v,t2 elseif i==3 then return pp,q,v elseif i==4 then return t2,pp,v else return v,pp,q end end
+            local r5,g5,b5=hsv2(rainHue,0.7,1)
+            TextRATHUB.Color=Color3.new(r5,g5,b5) TextRATHUB.Text="RATHUB"
+            for _,gw in ipairs(glowT) do gw.Color=Color3.new(r5*0.6,g5*0.6,b5*0.6) gw.Text="RATHUB" end
+        else TextRATHUB.Text="RATHUB" for _,g in ipairs(glowT) do g.Text="RATHUB" end end
+        if ts~=4 then
+            if glitchTicks<=0 then local w=math.sin(breathT*1.5)*0.05 for i,g in ipairs(glowT) do g.Transparency=T_TR[i]+w end end
+            if glitchCooldown>0 then glitchCooldown=glitchCooldown-1 end
+            if glitchTicks<=0 and glitchCooldown<=0 and math.random(1,55)==1 then glitchTicks=math.random(3,7) glitchCooldown=math.random(30,80) end
+            if glitchTicks>0 and TextRATHUB.Visible then
+                glitchTicks=glitchTicks-1
+                local col2=GCOL[math.random(1,#GCOL)] local off2=GOFF[math.random(1,#GOFF)]
+                if ts~=5 then TextRATHUB.Color=col2 end
+                TextRATHUB.Position=Main1.Position+Vector2.new(54,17)+off2 TextRATHUB.Outline=(math.random(1,3)~=1)
+                local gp={Main1.Position+Vector2.new(53,16),Main1.Position+Vector2.new(55,18),Main1.Position+Vector2.new(52,15),Main1.Position+Vector2.new(56,19)}
+                for i,g in ipairs(glowT) do
+                    g.Position=gp[i]+GOFF[math.random(1,#GOFF)] g.Transparency=T_TR[i]-0.25
+                    if ts~=5 then g.Color=GCOL[math.random(1,#GCOL)] end
+                end
+                if glitchTicks<=0 then
+                    if ts~=5 then TextRATHUB.Color=Color3.fromHex("#FFFFFF") end
+                    TextRATHUB.Position=Main1.Position+Vector2.new(54,17) TextRATHUB.Outline=true
+                    local gn={Vector2.new(53,16),Vector2.new(55,18),Vector2.new(52,15),Vector2.new(56,19)}
+                    for i,g in ipairs(glowT) do
+                        g.Position=Main1.Position+gn[i] g.Transparency=T_TR[i]
+                        if ts~=5 then if i<=2 then g.Color=Color3.fromHex(_G._th_accent or "#9d3df0") else g.Color=Color3.fromHex(_G._th_accent or "#6b1db0") end end
+                    end
+                end
+            end
+        end
+    end
+end)
+
+spawn(function()
+    local lastVis=false
+    while true do
+        wait(0.05)
+        local v=Main1.Visible
+        if v~=lastVis then lastVis=v setrobloxinput(not v) end
+    end
+end)
+
+local Tab_ContentPageVisuals_SetVisible
+Tab_ContentPageVisuals_SetVisible = function(visible)
+    if ContentPageVisuals then ContentPageVisuals.Visible = visible end
+    if ContentPageVisuals_Border then ContentPageVisuals_Border.Visible = visible end
+end
+local Tab_ContentPageExploits_SetVisible
+Tab_ContentPageExploits_SetVisible = function(visible)
+    if ContentPageExploits then ContentPageExploits.Visible = visible end
+    if ContentPageExploits_Border then ContentPageExploits_Border.Visible = visible end
+end
+local Tab_ContentPageMisc_SetVisible
+Tab_ContentPageMisc_SetVisible = function(visible)
+    if ContentPageMisc then ContentPageMisc.Visible = visible end
+    if ContentPageMisc_Border then ContentPageMisc_Border.Visible = visible end
+end
+local Tab_ContentPageSettings_SetVisible
+Tab_ContentPageSettings_SetVisible = function(visible)
+    if ContentPageSettings then ContentPageSettings.Visible = visible end
+    if ContentPageSettings_Border then ContentPageSettings_Border.Visible = visible end
+    if ToggleUIvisiblity then
+        ToggleUIvisiblity.Visible = visible
+        if ToggleUIvisiblity_Text then ToggleUIvisiblity_Text.Visible = visible end
+    end
+    pcall(function()
+        if _G.EffStyleLabel then
+            _G.EffStyleLabel.Visible=visible _G.EffStyleBtn.Visible=visible
+            _G.EffStyleBtnText.Visible=visible _G.EffStyleArrow.Visible=visible
+            _G.TxtStyleLabel.Visible=visible _G.TxtStyleBtn.Visible=visible
+            _G.TxtStyleBtnText.Visible=visible _G.TxtStyleArrow.Visible=visible
+            _G.ThemeLabel.Visible=visible _G.ThemeBtn.Visible=visible
+            _G.ThemeBtnText.Visible=visible _G.ThemeArrow.Visible=visible
+        end
+    end)
+end
+
+local onSwitch = function(val) end
+local onChanged = function(val) end
+local onClick = function() end
+local onKeyChanged = function(i) end
+local KeyNames = {}
+for _ki=0,255 do KeyNames[_ki]="Key".._ki end
+KeyNames[0x70]="F1" KeyNames[0x71]="F2" KeyNames[0x72]="F3" KeyNames[0x73]="F4"
+KeyNames[0x74]="F5" KeyNames[0x75]="F6" KeyNames[0x76]="F7" KeyNames[0x77]="F8"
+KeyNames[0x08]="Backspace" KeyNames[0x09]="Tab" KeyNames[0x0D]="Enter"
+KeyNames[0x1B]="Esc" KeyNames[0x20]="Space" 
+
+local dragging = nil
+local dragStart = nil
+local startPos  = nil
+local lastMouse1 = false
+
+while true do
+    wait(0.01)
+    if isrbxactive() then
+        local mouse1 = ismouse1pressed()
+        local mPos = Vector2.new(Mouse.X, Mouse.Y)
+        if ToggleUIvisiblity_IsListening then
+            for i = 1, 255 do
+                if iskeypressed(i) and not ismouse1pressed() then
+                    ToggleUIvisiblity_Key = i
+                    ToggleUIvisiblity_IsListening = false
+                    local keyName = KeyNames[i] or "Unknown"
+                    ToggleUIvisiblity_Text.Text = "[ " .. keyName .. " ]"
+                    ToggleUIvisiblity_Text.Color = Color3.fromHex("#eae0e2")
+                    pcall(function() onKeyChanged(i) end)
+                    wait(0.2)
+                    break
+                end
+            end
+        else
+            if iskeypressed(ToggleUIvisiblity_Key) then
+                local newState = not Main1.Visible
+                Main1.Visible = newState
+                for _,sq in ipairs(VeryTopPlace_Parts) do sq.Visible=newState end
+                Circle5.Visible = newState
+                TextRATHUB.Visible = newState
+                PlaceTabs.Visible = newState
+                VisualsTab.Visible = newState
+                VisualsTab_Text.Visible = newState
+                ExploitsTab.Visible = newState
+                ExploitsTab_Text.Visible = newState
+                MiscTab.Visible = newState
+                MiscTab_Text.Visible = newState
+                SettingsTab.Visible = newState
+                SettingsTab_Text.Visible = newState
+                Line1.Visible = newState
+                Line2.Visible = newState
+                ContentPageVisuals.Visible = newState
+                ContentPageVisuals_Border.Visible = newState
+                ContentPageExploits.Visible = newState
+                ContentPageExploits_Border.Visible = newState
+                ContentPageMisc.Visible = newState
+                ContentPageMisc_Border.Visible = newState
+                if _G.C5g1 then _G.C5g1.Visible=newState _G.C5g2.Visible=newState _G.C5g3.Visible=newState _G.RHg1.Visible=newState _G.RHg2.Visible=newState _G.RHg3.Visible=newState _G.RHg4.Visible=newState end
+                if _G.EffStyleLabel then _G.EffStyleLabel.Visible=newState _G.EffStyleBtn.Visible=newState _G.EffStyleBtnText.Visible=newState _G.EffStyleArrow.Visible=newState _G.TxtStyleLabel.Visible=newState _G.TxtStyleBtn.Visible=newState _G.TxtStyleBtnText.Visible=newState _G.TxtStyleArrow.Visible=newState _G.ThemeLabel.Visible=newState _G.ThemeBtn.Visible=newState _G.ThemeBtnText.Visible=newState _G.ThemeArrow.Visible=newState end
+                if newState and _G._applyTheme and _G.uiThemes then _G._applyTheme(_G.uiThemes[_G.uiThemeActive or 1]) end
+                if newState and _G._activeTabBg and setActiveTab then setActiveTab(_G._activeTabBg,_G._activeTabTxt) end
+                ContentPageSettings.Visible = newState
+                ContentPageSettings_Border.Visible = newState
+                ToggleUIvisiblity.Visible = newState
+                ToggleUIvisiblity_Text.Visible = newState
+                wait(0.2)
+            end
+        end
+        if mouse1 and not lastMouse1 then
+            if VisualsTab.Visible and mPos.X >= VisualsTab.Position.X and mPos.X <= VisualsTab.Position.X + VisualsTab.Size.X and
+               mPos.Y >= VisualsTab.Position.Y and mPos.Y <= VisualsTab.Position.Y + VisualsTab.Size.Y then
+                pcall(function() onClick() end)
+                setActiveTab(VisualsTab,VisualsTab_Text)
+                pcall(function() Tab_ContentPageExploits_SetVisible(false) end)
+                pcall(function() Tab_ContentPageMisc_SetVisible(false) end)
+                pcall(function() Tab_ContentPageSettings_SetVisible(false) end)
+                pcall(function() Tab_ContentPageVisuals_SetVisible(not ContentPageVisuals.Visible) end)
+            end
+            if ExploitsTab.Visible and mPos.X >= ExploitsTab.Position.X and mPos.X <= ExploitsTab.Position.X + ExploitsTab.Size.X and
+               mPos.Y >= ExploitsTab.Position.Y and mPos.Y <= ExploitsTab.Position.Y + ExploitsTab.Size.Y then
+                pcall(function() onClick() end)
+                setActiveTab(ExploitsTab,ExploitsTab_Text)
+                pcall(function() Tab_ContentPageVisuals_SetVisible(false) end)
+                pcall(function() Tab_ContentPageMisc_SetVisible(false) end)
+                pcall(function() Tab_ContentPageSettings_SetVisible(false) end)
+                pcall(function() Tab_ContentPageExploits_SetVisible(not ContentPageExploits.Visible) end)
+            end
+            if MiscTab.Visible and mPos.X >= MiscTab.Position.X and mPos.X <= MiscTab.Position.X + MiscTab.Size.X and
+               mPos.Y >= MiscTab.Position.Y and mPos.Y <= MiscTab.Position.Y + MiscTab.Size.Y then
+                pcall(function() onClick() end)
+                setActiveTab(MiscTab,MiscTab_Text)
+                pcall(function() Tab_ContentPageVisuals_SetVisible(false) end)
+                pcall(function() Tab_ContentPageExploits_SetVisible(false) end)
+                pcall(function() Tab_ContentPageSettings_SetVisible(false) end)
+                pcall(function() Tab_ContentPageMisc_SetVisible(not ContentPageMisc.Visible) end)
+            end
+            if SettingsTab.Visible and mPos.X >= SettingsTab.Position.X and mPos.X <= SettingsTab.Position.X + SettingsTab.Size.X and
+               mPos.Y >= SettingsTab.Position.Y and mPos.Y <= SettingsTab.Position.Y + SettingsTab.Size.Y then
+                pcall(function() onClick() end)
+                setActiveTab(SettingsTab,SettingsTab_Text)
+                pcall(function() Tab_ContentPageVisuals_SetVisible(false) end)
+                pcall(function() Tab_ContentPageExploits_SetVisible(false) end)
+                pcall(function() Tab_ContentPageMisc_SetVisible(false) end)
+                pcall(function() Tab_ContentPageSettings_SetVisible(not ContentPageSettings.Visible) end)
+            end
+                        if _G.EffStyleBtn and _G.EffStyleBtn.Visible and mPos.X>=_G.EffStyleBtn.Position.X and mPos.X<=_G.EffStyleBtn.Position.X+140 and mPos.Y>=_G.EffStyleBtn.Position.Y and mPos.Y<=_G.EffStyleBtn.Position.Y+18 then _G.effActive=(_G.effActive%#_G.effStyles)+1 _G.EffStyleBtnText.Text=_G.effStyles[_G.effActive] end
+                        if _G.TxtStyleBtn and _G.TxtStyleBtn.Visible and mPos.X>=_G.TxtStyleBtn.Position.X and mPos.X<=_G.TxtStyleBtn.Position.X+140 and mPos.Y>=_G.TxtStyleBtn.Position.Y and mPos.Y<=_G.TxtStyleBtn.Position.Y+18 then _G.txtActive=(_G.txtActive%#_G.txtStyles)+1 _G.TxtStyleBtnText.Text=_G.txtStyles[_G.txtActive] end
+                        if _G.ThemeBtn and _G.ThemeBtn.Visible and mPos.X>=_G.ThemeBtn.Position.X and mPos.X<=_G.ThemeBtn.Position.X+140 and mPos.Y>=_G.ThemeBtn.Position.Y and mPos.Y<=_G.ThemeBtn.Position.Y+18 then _G.uiThemeActive=(_G.uiThemeActive%#_G.uiThemes)+1 _G._applyTheme(_G.uiThemes[_G.uiThemeActive]) end
+            if ToggleUIvisiblity.Visible and mPos.X >= ToggleUIvisiblity.Position.X and mPos.X <= ToggleUIvisiblity.Position.X + ToggleUIvisiblity.Size.X and
+               mPos.Y >= ToggleUIvisiblity.Position.Y and mPos.Y <= ToggleUIvisiblity.Position.Y + ToggleUIvisiblity.Size.Y then
+                pcall(function() onKeyChanged() end)
+                ToggleUIvisiblity_IsListening = true
+                ToggleUIvisiblity_Text.Text = "..."
+                ToggleUIvisiblity_Text.Color = Color3.fromHex("#FFFF00")
+            end
+            if Main1.Visible and mPos.X >= Main1.Position.X and mPos.X <= Main1.Position.X + Main1.Size.X and
+               mPos.Y >= Main1.Position.Y and mPos.Y <= Main1.Position.Y + Main1.Size.Y then
+                dragging = Main1
+                dragStart = mPos
+                startPos  = Main1.Position
+            end
+        end
+        if not mouse1 and lastMouse1 then
+            dragging = nil
+        end
+        if dragging and mouse1 then
+            local delta = mPos - dragStart
+            dragging.Position = startPos + delta
+            if dragging == Main1 then
+                do local gSteps=50 local gW=604
+                    for i,sq in ipairs(VeryTopPlace_Parts) do
+                        sq.Position=Vector2.new(dragging.Position.X+(i-1)*math.floor(gW/gSteps),dragging.Position.Y)
+                    end end
+                Circle5.Position = dragging.Position + Vector2.new(25, 23)
+                _G.C5g1.Position=dragging.Position+Vector2.new(25,23)
+                _G.C5g2.Position=dragging.Position+Vector2.new(25,23)
+                _G.C5g3.Position=dragging.Position+Vector2.new(25,23)
+                TextRATHUB.Position = dragging.Position + Vector2.new(54, 17)
+                _G.RHg1.Position=dragging.Position+Vector2.new(53,16)
+                _G.RHg2.Position=dragging.Position+Vector2.new(55,18)
+                _G.RHg3.Position=dragging.Position+Vector2.new(52,15)
+                _G.RHg4.Position=dragging.Position+Vector2.new(56,19)
+                PlaceTabs.Position = dragging.Position + Vector2.new(2, 46)
+                VisualsTab.Position = dragging.Position + Vector2.new(8, 50)
+                VisualsTab_Text.Position = VisualsTab.Position + Vector2.new(77/2, 36/2)
+                ExploitsTab.Position = dragging.Position + Vector2.new(100, 50)
+                ExploitsTab_Text.Position = ExploitsTab.Position + Vector2.new(71/2, 35/2)
+                MiscTab.Position = dragging.Position + Vector2.new(186, 50)
+                MiscTab_Text.Position = MiscTab.Position + Vector2.new(73/2, 35/2)
+                SettingsTab.Position = dragging.Position + Vector2.new(273, 50)
+                SettingsTab_Text.Position = SettingsTab.Position + Vector2.new(73/2, 35/2)
+                Line1.Position = dragging.Position + Vector2.new(0, 45)
+                Line2.Position = dragging.Position + Vector2.new(0, 89)
+                ContentPageVisuals.Position = dragging.Position + Vector2.new(25, 114)
+                ContentPageVisuals_Border.Position = ContentPageVisuals.Position
+                ContentPageExploits.Position = dragging.Position + Vector2.new(19, 107)
+                ContentPageExploits_Border.Position = ContentPageExploits.Position
+                ContentPageMisc.Position = dragging.Position + Vector2.new(14, 106)
+                ContentPageMisc_Border.Position = ContentPageMisc.Position
+                ContentPageSettings.Position = dragging.Position + Vector2.new(25, 111)
+                ContentPageSettings_Border.Position = ContentPageSettings.Position
+                ToggleUIvisiblity.Position = dragging.Position + Vector2.new(37, 125)
+                ToggleUIvisiblity_Text.Position = ToggleUIvisiblity.Position + Vector2.new(74/2, 16/2)
+                if _G.EffStyleLabel then _G.EffStyleLabel.Position=ContentPageSettings.Position+Vector2.new(9,42) _G.EffStyleBtn.Position=ContentPageSettings.Position+Vector2.new(190,38) _G.EffStyleBtnText.Position=_G.EffStyleBtn.Position+Vector2.new(70,9) _G.EffStyleArrow.Position=_G.EffStyleBtn.Position+Vector2.new(125,9) _G.TxtStyleLabel.Position=ContentPageSettings.Position+Vector2.new(9,68) _G.TxtStyleBtn.Position=ContentPageSettings.Position+Vector2.new(190,64) _G.TxtStyleBtnText.Position=_G.TxtStyleBtn.Position+Vector2.new(70,9) _G.TxtStyleArrow.Position=_G.TxtStyleBtn.Position+Vector2.new(125,9) _G.ThemeLabel.Position=ContentPageSettings.Position+Vector2.new(9,94) _G.ThemeBtn.Position=ContentPageSettings.Position+Vector2.new(190,90) _G.ThemeBtnText.Position=_G.ThemeBtn.Position+Vector2.new(70,9) _G.ThemeArrow.Position=_G.ThemeBtn.Position+Vector2.new(125,9) end
+            end
+        end
+        lastMouse1 = mouse1
+    end
+end
